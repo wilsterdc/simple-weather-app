@@ -127,7 +127,7 @@ userInput.addEventListener("keypress", async function(event) {
         //     console.error(error);
         // };
         
-        // event.preventDefault();
+        event.preventDefault();
 
         search_button.click();
     };
@@ -135,10 +135,9 @@ userInput.addEventListener("keypress", async function(event) {
 
 search_button.addEventListener("click", async function(){
     const userInput = document.getElementById("ui_input").value;
-    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userInput}&APPID=${apiKey}`);
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userInput}&APPID=860c5a1c3465c45131376396dcd38571`);
     const data = await res.json();
-    let city = data.name;
-    let country = data.sys.country;
+    
 
     try {
 
@@ -146,6 +145,9 @@ search_button.addEventListener("click", async function(){
             console.error('There\'s an error in getting the respond.');
             weatherWidget.textContent = `${userInput} ${data.message}.`;
         } else {
+            let city = data.name;
+            let country = data.sys.country;
+            
             weatherWidget.textContent = `Location: ${city}, ${country}`;
             console.log(data);
         }
