@@ -58,14 +58,12 @@ setInterval(() => {
 */
 
 const weatherWidget = document.getElementById("widget_weather");
-const apiKey = "860c5a1c3465c45131376396dcd38571"
-const ipToken = 'd163b9da99b8c6';
 
-fetch(`https://ipinfo.io/json?token=${ipToken}`)
+fetch('https://ipinfo.io/json?token=d163b9da99b8c6')
     .then(res => res.json())
     .then(data => {
 
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${data.city}&APPID=${apiKey}`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${data.city}&APPID=860c5a1c3465c45131376396dcd38571`)
         .then(res => {
             if (!res.ok) {
                 console.error('There\'s and error in getting the respond.');
@@ -129,15 +127,15 @@ userInput.addEventListener("keypress", async function(event) {
         //     console.error(error);
         // };
         
-        event.preventDefault();
+        // event.preventDefault();
 
         search_button.click();
     };
 });
 
 search_button.addEventListener("click", async function(){
-    const ui_input = document.getElementById("ui_input").value;
-    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ui_input}&APPID=${apiKey}`);
+    const userInput = document.getElementById("ui_input").value;
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userInput}&APPID=${apiKey}`);
     const data = await res.json();
     let city = data.name;
     let country = data.sys.country;
@@ -145,8 +143,8 @@ search_button.addEventListener("click", async function(){
     try {
 
         if (!res.ok) {
-            // console.error('There\'s an error in getting the respond.');
-            weatherWidget.textContent = `${ui_input} ${data.message}.`;
+            console.error('There\'s an error in getting the respond.');
+            weatherWidget.textContent = `${userInput} ${data.message}.`;
         } else {
             weatherWidget.textContent = `Location: ${city}, ${country}`;
             console.log(data);
