@@ -78,6 +78,14 @@ fetch('https://ipinfo.io/json?token=d163b9da99b8c6')
             weatherWidget.textContent = `Location: ${location}, ${country}`;
             console.log(data.name);
             console.log(data);
+
+            let timeTracker = new Date();
+            const utcTimezone = (timeTracker.getUTCHours() + (7200 / 3600)) - 12;
+            const currentTime = new Date(utcTimezone).toLocaleTimeString();
+            const utcMinute = timeTracker.getUTCMinutes();
+
+            console.log(`${utcTimezone} : ${utcMinute}`);
+
         })
         .catch(error => {
                 console.error(error);
@@ -147,7 +155,7 @@ search_button.addEventListener("click", async function(){
         } else {
             let city = data.name;
             let country = data.sys.country;
-            
+
             weatherWidget.textContent = `Location: ${city}, ${country}`;
             console.log(data);
         }
