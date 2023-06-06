@@ -1,4 +1,3 @@
-
 /***
 const MONTHS = [
     'January',
@@ -27,7 +26,7 @@ const DAYS = [
 
 const todayWidget = document.getElementById("widget_todayIs");
 const timeWidget = document.getElementById("widget_hours");
-const weatherWidget = document.getElementById("widget_weather");
+const location = document.getElementById("widget_weather");
 
 const currentDate = new Date();
 const monthText = MONTHS[currentDate.getMonth()];
@@ -57,7 +56,7 @@ setInterval(() => {
 
 */
 
-const weatherWidget = document.getElementById("widget_weather");
+const loc = document.getElementById("location");
 
 fetch('https://ipinfo.io/json?token=d163b9da99b8c6')
     .then(res => res.json())
@@ -72,10 +71,10 @@ fetch('https://ipinfo.io/json?token=d163b9da99b8c6')
             return res.json();
         })
         .then(data => {
-            let location = data.name;
+            let city = data.name;
             let country = data.sys.country;
 
-            weatherWidget.textContent = `Location: ${location}, ${country}`;
+            loc.textContent = `${city}, ${country}`;
             console.log(data.name);
             console.log(data);
 
@@ -102,17 +101,17 @@ fetch('https://ipinfo.io/json?token=d163b9da99b8c6')
 //     })
 //     .then(data => {
 //         console.log(data);
-//         let location = data.name;
+//         let city = data.name;
 
-//         weatherWidget.textContent = `Location: ${location}`;
+//         location.textContent = `location: ${city}`;
 //         console.log(data.name);
 //     })
 //    .catch(error => {
 //         console.error(error);
 //     });
 
-const userInput = document.getElementById("ui_input");
-const search_button = document.getElementById("search_btn");
+const userInput = document.getElementById("userInput");
+const searchButton = document.getElementById("searchBtn");
 
 userInput.addEventListener("keypress", async function(event) {
     if (event.key === "Enter") {
@@ -125,9 +124,9 @@ userInput.addEventListener("keypress", async function(event) {
 
         //     if (!res.ok) {
         //         // console.error('There\'s an error in getting the respond.');
-        //         weatherWidget.textContent = `${ui_input} ${data.message}.`;
+        //         location.textContent = `${ui_input} ${data.message}.`;
         //     } else {
-        //         weatherWidget.textContent = `Location: ${city}, ${country}`;
+        //         location.textContent = `location: ${city}, ${country}`;
         //         console.log(data);
         //     }
         // }
@@ -137,12 +136,12 @@ userInput.addEventListener("keypress", async function(event) {
         
         event.preventDefault();
 
-        search_button.click();
+        searchButton.click();
     };
 });
 
-search_button.addEventListener("click", async function(){
-    const userInput = document.getElementById("ui_input").value;
+searchButton.addEventListener("click", async function(){
+    const userInput = document.getElementById("userInput").value;
     const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userInput}&APPID=860c5a1c3465c45131376396dcd38571`);
     const data = await res.json();
     
@@ -151,12 +150,12 @@ search_button.addEventListener("click", async function(){
 
         if (!res.ok) {
             console.error('There\'s an error in getting the respond.');
-            weatherWidget.textContent = `${userInput} ${data.message}.`;
+            loc.textContent = `${userInput} ${data.message}.`;
         } else {
             let city = data.name;
             let country = data.sys.country;
 
-            weatherWidget.textContent = `Location: ${city}, ${country}`;
+            loc.textContent = `${city}, ${country}`;
             console.log(data);
         }
     }

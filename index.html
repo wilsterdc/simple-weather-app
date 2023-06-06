@@ -4,15 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/main.css">
+    <link rel="stylesheet" href="./style/style.css">
     <title>SWAPP</title>
 </head>
 <body>
-    <h1 id="widget_todayIs"></h1>
-    <h2 id="widget_hours"></h2>
-    <input id="ui_input" type="search">
-    <div id="widget_weather"></div>
-    <button id="search_btn">Click Me!</button>
+    <div class="searchBar">
+        <input id="userInput" type="search">
+        <button id="searchBtn"><img id="iconSearch" src="./images/icon/search.png"></button>
+    </div>
+
+    <div class="primaryInfo">
+        <h1 id="location"></h1>
+        <h1 id="temp">32°C</h1>
+        <h1 id="weather">Sunny</h1>
+    </div>
+
+    <div class="secondaryInfo">
+        <h2 id="day">Wednesday</h2>
+        <h2 id="date">June 07, 2023</h2>
+        <h2 id="time">01:24am</h2>
+    </div>
+
+    <div class="tertiaryInfo">
+        <img id="iconTemp" src="./images/icon/temp.png">
+        <h2 id="feelsLike">Feels Like: 30.5°C</h2>
+        <img id="iconHumidity" src="./images/icon/humidity.png">
+        <h2 id="humidity">Humidity: 77%</h2>
+        <img id="iconWind" src="./images/icon/wind.png">
+        <h2 id="wind">Wind: 93° @ 2.15m/s</h2>
+    </div>
+    
 
 </body>
 
