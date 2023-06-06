@@ -1,0 +1,21 @@
+.searchBar {
+    display: flex;
+    background-color: aqua;
+    column-gap: 2px;
+    margin-top: 30vh;
+    justify-content: center;
+
+    #userInput {
+        border-radius: 10px;
+        width: 40vw;
+    }
+
+    #searchBtn {
+        border-radius: 10px;
+
+        #iconSearch{
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
