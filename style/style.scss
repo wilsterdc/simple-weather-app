@@ -1,6 +1,9 @@
+body {
+    background: #00A3FE
+}
+
 .searchBar {
     display: flex;
-    background-color: aqua;
     column-gap: 2px;
     margin-top: 30vh;
     justify-content: center;
@@ -16,6 +19,33 @@
         #iconSearch{
             width: 30px;
             height: 30px;
+        }
+    }
+}
+
+.info {
+    display: grid;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-top: 15px;
+
+    .primaryInfo {
+        display: grid;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, .15);  
+        backdrop-filter: blur(5px);
+        text-align: center;
+        
+        #location {
+            margin: 5px;
+        }
+
+        #temp {
+            margin: 5px;
+        }
+
+        #weather {
+            margin: 5px;
         }
     }
 }
