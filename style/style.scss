@@ -7,14 +7,19 @@ body {
     column-gap: 2px;
     margin-top: 30vh;
     justify-content: center;
+    // background: white;
 
     #userInput {
         border-radius: 10px;
         width: 40vw;
+        background-color: rgba(255, 255, 255, .15);  
+        backdrop-filter: blur(5px);
     }
 
     #searchBtn {
         border-radius: 10px;
+        background-color: rgba(255, 255, 255, .15);  
+        backdrop-filter: blur(5px);
 
         #iconSearch{
             width: 30px;
@@ -24,35 +29,52 @@ body {
 }
 
 .info {
-    position: relative;
+    display: grid;
     margin: 10px;
     padding-left: 5vw;
     padding-right: 5vw;
     padding-top: 15px;
-    background: rgba(255, 255, 255);
+    // background: rgba(255, 255, 255);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
 
-    .contentInfo {
+
+    .primaryInfo {
         display: grid;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, .15);  
+        backdrop-filter: blur(5px);
+        text-align: center;
+        grid-column-start: 1;
+        grid-column-end: 3;
 
-        .primaryInfo {
-            border-radius: 15px;
-            background-color: rgba(255, 255, 255, .15);  
-            backdrop-filter: blur(5px);
-            text-align: center;
-
-            #location {
-                margin: 5px;
-            }
-
-            #temp {
-                margin: 5px;
-            }
-
-            #weather {
-                margin: 5px;
-            }
+        #location {
+            margin: 5px;
         }
-        
-        
+
+        #temp {
+            margin: 5px;
+        }
+
+        #weather {
+            margin: 5px;
+           }
     }
+
+    .secondaryInfo {
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, .15);  
+        backdrop-filter: blur(5px);
+        padding: 25px;
+    }
+
+    .tertiaryInfo {
+        display: grid;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, .15);  
+        backdrop-filter: blur(5px);
+        padding: 25px;
+        grid-template-columns: repeat(2, 120px);
+    }
+        
 }

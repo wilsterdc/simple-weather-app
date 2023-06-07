@@ -11,9 +11,13 @@ body {
 .searchBar #userInput {
   border-radius: 10px;
   width: 40vw;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
 }
 .searchBar #searchBtn {
   border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
 }
 .searchBar #searchBtn #iconSearch {
   width: 30px;
@@ -21,30 +25,45 @@ body {
 }
 
 .info {
-  position: relative;
+  display: grid;
   margin: 10px;
   padding-left: 5vw;
   padding-right: 5vw;
   padding-top: 15px;
-  background: rgb(255, 255, 255);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
 }
-.info .contentInfo {
+.info .primaryInfo {
   display: grid;
-}
-.info .contentInfo .primaryInfo {
   border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(5px);
   text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
-.info .contentInfo .primaryInfo #location {
+.info .primaryInfo #location {
   margin: 5px;
 }
-.info .contentInfo .primaryInfo #temp {
+.info .primaryInfo #temp {
   margin: 5px;
 }
-.info .contentInfo .primaryInfo #weather {
+.info .primaryInfo #weather {
   margin: 5px;
+}
+.info .secondaryInfo {
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  padding: 25px;
+}
+.info .tertiaryInfo {
+  display: grid;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  padding: 25px;
+  grid-template-columns: repeat(2, 120px);
 }
 
 /*# sourceMappingURL=style.css.map */
