@@ -21,25 +21,29 @@ body {
 }
 
 .info {
-  display: grid;
+  position: relative;
+  margin: 10px;
   padding-left: 5vw;
   padding-right: 5vw;
   padding-top: 15px;
+  background: rgb(255, 255, 255);
 }
-.info .primaryInfo {
+.info .contentInfo {
   display: grid;
+}
+.info .contentInfo .primaryInfo {
   border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(5px);
   text-align: center;
 }
-.info .primaryInfo #location {
+.info .contentInfo .primaryInfo #location {
   margin: 5px;
 }
-.info .primaryInfo #temp {
+.info .contentInfo .primaryInfo #temp {
   margin: 5px;
 }
-.info .primaryInfo #weather {
+.info .contentInfo .primaryInfo #weather {
   margin: 5px;
 }
 
